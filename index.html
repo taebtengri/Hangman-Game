@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="style/reset.css">
+		<link rel="stylesheet" type="text/css" href="style/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Sansita" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<h1 class="zagolovok">
+			MUSICAL HANGMAN
+			</h1>
+			<button onclick="myFunction()" id="start" class="zagolovok">START</button>
+		</header>
+		<div class="leftcontainer left borderleft">
+			<h2 class="podzagolovok">
+			Answer
+			</h2>
+			<img id="imgans" class="imgans" src="">
+			
+		</div>
+		<div class="rightcontainer right borderright">
+			<h2 class="podzagolovok">
+			Question:
+			</h2>
+			<h2 class="usedletters">
+				<ul id="letters" class="inline">
+				
+					
+				</ul>
+			</h2>
+			<h2 id="le" class="usedletters">Guesses left: 8</h2>
+			<h2></h2>
+			<h2 id="us" class="usedletters">Used letters: </h2>
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		document.getElementById("start").onclick = function() {myFunction()};
+		var w = 0
+		var pred = 0;
+		var alphabet = ["a" , "b" , "c" , "d" , "e" , "f" , "g" , "h" , "i" , "j" , "k" , "l" , "m" , "n" , "o" , "p" , "q" , "r" , "s" , "t" , "u" , "v" , "w" , "x" , "y" , "z"];
+		
+		function myFunction() {
+		document.getElementById("imgans").style.display = "none";
+		if (pred < 1) {
+		document.getElementById("letters").innerHTML = "";
+		document.getElementById("us").innerHTML = "";
+		var random = Math.floor(Math.random()*(array.length))
+		var truth = [];
+		for (k=0; k <array[random].length; k++) {
+		truth.push("1");
+		}
+		//var usedtrue = [];
+		document.getElementById("imgans").src = "images/" + random + ".jpg";
+		var question = document.getElementById('letters')
+		
+    	for (i=0;i<array[random].length; i++) {
+    	var list = document.createElement("li");
+    		list.id= "l"+i;
+    		//list.innerHTML = array[random][i];
+    		question.appendChild(list);
+    	}
+    	pred++;
+    	var guesses = 8;
+    	var usarray = [];
+
+    	var le = document.getElementById("le");
+    	le.textContent ="Guesses left: " + guesses;
+    	var used = document.getElementById("us");
+    	 document.onkeyup = function() {
+    	 if ( alphabet.indexOf(event.key) !== -1 ){
+    	 
+		if (array[random].indexOf(event.key) == -1 && usarray.indexOf(event.key) == -1 && pred !== 0) {
+		usarray.push(event.key);
+			used.textContent = "Used letters: " + usarray;
+			guesses--;
+			le.textContent ="Guesses left: " + guesses;
+    	 }
+    	 if (guesses == 0) {
+    	 alert("Game over!")
+    	 pred = 0;
+    	 document.getElementById("letters").innerHTML = "";
+		 document.getElementById("us").innerHTML = "";
+		 document.getElementById("imgans").style.display = "block";
+    	 }
+    	 
+    	 if (array[random].indexOf(event.key) !== -1) {
+    	 for (j=0; j<array[random].length; j++) {
+			if (event.key == array[random][j]){
+    	 document.getElementById("l" + j).innerHTML = array[random][j];
+    	 truth[j] = array[random][j];
+    	 
+    	 }
+    	// if (usedtrue.indexOf(event.key) == -1) {
+    	// usedtrue.push(array[random][j]); 
+    	 
+    	 //}
+    	 }
+    	 }
+
+
+    	 if (truth.indexOf("1") == -1) {
+    	 alert("You win!")
+    	 pred = 0;
+    	 document.getElementById("letters").innerHTML = "";
+		 document.getElementById("us").innerHTML = "";
+		 document.getElementById("imgans").style.display = "block";
+		 w++;
+		 }
+    	 }
+		}
+   } 	
+}
+		
+		
+		var array = [['m', 'e', 't','a', 'l', 'l', 'i', 'c', 'a'], ['m','e','g','a','d','e','t','h'], ["a","n", 't','h', 'r', 'a', 'x'], ['s', 'l', 'a', 'y', 'e', 'r'], ["j" , "a" , "m" , "i" , "r" , "o" , "q" , "u" , "a" , "i"], ["m" , "a" , "y" , "h" , "e" , "m"], ["d" , "i" , "e" , "a" , "n" , "t" , "w" , "o" , "o" , "r" , "d"], ["s" , "a" , "n" , "t" , "a" , "n" , "a"], ["s" , "o" , "u" , "n" , "d" , "g" , "a" , "r" , "d" , "e" , "n"], ["a" , "u" , "d" , "i" , "o" , "s" , "l" , "a" , "v" , "e"]];
+	</script>
+</html>

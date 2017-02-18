@@ -1,0 +1,97 @@
+div {
+    display: block;
+}
+
+header {
+	margin-bottom: 50px;
+	margin-top: 50px;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+li {
+	display: inline;
+	margin: 10px;
+	padding:15px;
+	border-bottom: 2px solid gray;
+	
+}
+#bottom {
+	border-bottom: 2px solid gray;
+}
+
+h1 {
+	text-align: center;
+}
+
+.borderleft { 
+	margin-left: 15%;
+	padding: 2px;
+	border: 2px solid gray;
+	border-style: dotted;
+	width: 34.5%;
+}
+
+.borderright { 
+	margin-right: 15%;
+	padding: 2px;
+	border: 2px solid gray;
+	border-style: dotted;
+	width: 34.5%;
+}
+
+.border { 
+	
+	padding: 2px;
+	border: 2px solid gray;
+	border-style: dotted;
+	width: 34.5%;
+}
+
+.content {
+	height: 900px;
+}
+
+.zagolovok {
+	font-size: 72px;
+	font-family: 'Sansita', sans-serif;
+	margin-bottom: 50px;
+}
+
+.podzagolovok {
+	font-size: 48px;
+	font-family: 'Sansita', sans-serif;
+	text-align: center;
+	margin-bottom: 30px;
+	border-bottom: dotted 2px gray;
+}
+
+#imgans {
+	
+	margin: auto;
+	max-width:100%;
+	height: auto;
+	display: none;
+	height: 400px;
+}
+
+.usedletters {
+	font-size: 48px;
+	font-family: 'Sansita', sans-serif;
+	text-align: center;
+	margin: 15px;
+}
+
+button {
+	 margin: 0 45% 0 45%;
+}
+
+ul {
+	margin-bottom: 20px;
+}
